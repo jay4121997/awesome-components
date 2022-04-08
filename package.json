@@ -1,5 +1,5 @@
 {
-  "name": "front-end-ui",
+  "name": "myeditor",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,13 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "prismjs": "^1.27.0",
-    "rc-ckfulleditor": "^2.0.0",
+    "@ckeditor/ckeditor5-react": "^4.0.1",
+    "ckeditor5-custom-build": "file:./ckeditor5",
+    "puff-puff": "^1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
-    "vite": "^2.8.0"
+    "vite": "^2.9.0"
   }
 }

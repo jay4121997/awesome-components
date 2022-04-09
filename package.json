@@ -10,6 +10,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^4.0.1",
     "ckeditor5-custom-build": "file:./ckeditor5",
+    "dompurify": "^2.3.6",
     "install": "^0.13.0",
     "npm": "^8.6.0",
     "puff-puff": "^1.2.0",

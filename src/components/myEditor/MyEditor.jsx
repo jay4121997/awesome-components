@@ -53,9 +53,6 @@ const config = {
   heading: {
     options: [
       { model: 'paragraph', title: 'Text', view: {name: 'p',classes: 'blog-text-paragraph'}, classes:'blog-text-paragraph' },
-      // { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-      // { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-      // {model: 'Text',view: {name: 'p',classes: 'blog-text-paragraph'},title: 'Text',},
       {model: 'Title Heading',view: {name: 'h1',classes: 'blog-title-heading'},title: 'Title Heading',},
       {model: 'Sub Heading',view: {name: 'h2',classes: 'blog-title-sub-heading'},title: 'Sub Heading', converterPriority:'high' },
 
@@ -64,7 +61,6 @@ const config = {
   
   codeBlock: {
     languages: [
-        // Do not render the CSS class for the plain text code blocks.
         { language: 'plaintext', label: 'Plain text', class: 'code-block-text' },
         { language: 'javascript', label: 'JavaScript', class: 'js javascript js-code code-block-js language-javascript' },
         { language: 'JSX', label: 'JSX', class: 'jsx jsx-code code-block-jsx language-jsx' },
@@ -77,38 +73,23 @@ const config = {
   },
   htmlSupport: {
     allow: [
-        
         {
           name: /^(div|section|article|p|h[1-6]|span|hr|ol|ul|li|sup|sub)$/,
           styles: true,
           attributes: true,
         },
-       
-        
-      ]
+       ]
   },
   mediaEmbed: {
-
-    // Previews are always enabled if there’s a provider for a URL (below regex catches all URLs)
-    // By default `previewsInData` are disabled, but let’s set it to `false` explicitely to be sure
     previewsInData: false,
-
     providers: [
         {
-            // hint: this is just for previews. Get actual HTML codes by making API calls from your CMS
-            name: 'iframely previews', 
-
-            // Match all URLs or just the ones you need:
-            url: /.+/,
-
+        name: 'iframely previews',
+        url: /.+/,
         html: match => {
               console.log('match')
                 const url = match[ 0 ];
-                
                 var iframeUrl = IFRAME_SRC + '?app=1&api_key=' + I_API + '&url=' + encodeURIComponent(url);
-                // alternatively, use &key= instead of &api_key with the MD5 hash of your api_key
-                // more about it: https://iframely.com/docs/allow-origins
-
                 return (
                     // If you need, set maxwidth and other styles for 'iframely-embed' class - it's yours to customize
                     '<div class="iframely-embed">' +

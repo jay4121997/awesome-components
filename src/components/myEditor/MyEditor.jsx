@@ -8,7 +8,9 @@ const I_API = import.meta.env.VITE_IFRAME
 
 var IFRAME_SRC = '//cdn.iframe.ly/api/iframe';
 const config = {
-  toolbar:{
+  toolbar: {
+    
+
     items:[
 			'heading',
 			'|',
@@ -47,12 +49,12 @@ const config = {
 			// 'strikethrough',
       
 		],
-    shouldNotGroupWhenFull:true
+    shouldNotGroupWhenFull:false
   },
   
   heading: {
     options: [
-      { model: 'paragraph', title: 'Text', view: {name: 'p',classes: 'blog-text-paragraph'}, classes:'blog-text-paragraph' },
+      { model: 'Text', title: 'Text', view: {name: 'p',classes: 'blog-text-paragraph'}, classes:'blog-text-paragraph' },
       {model: 'Title Heading',view: {name: 'h1',classes: 'blog-title-heading'},title: 'Title Heading',},
       {model: 'Sub Heading',view: {name: 'h2',classes: 'blog-title-sub-heading'},title: 'Sub Heading', converterPriority:'high' },
 

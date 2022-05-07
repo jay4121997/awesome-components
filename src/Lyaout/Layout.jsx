@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 const Layout = () => {
   return (
+    // navbar goes here
     <Router>
         <Switch>
             <Route path="/">
@@ -18,10 +19,9 @@ const Layout = () => {
             <Route path="/contact">
                 <Contact />
             </Route>
-        </Switch>
-        
-        
+        </Switch>       
     </Router>
+    // footer goes here
   )
 }
 

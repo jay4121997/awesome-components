@@ -1,27 +1,25 @@
 import React from 'react'
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route,
     Link
   } from "react-router-dom";
+import Navbar from '../components/NavBar/Navbar';
+import ComponentDescription from '../Pages/ComponentDescription/ComponentDescription';
 const Layout = () => {
   return (
     // navbar goes here
+    <>
+    {/* <Navbar /> */}
     <Router>
-        <Switch>
-            <Route path="/">
-                <Home />
-            </Route>
-            <Route path="/about">
-                <About />
-            </Route>
-            <Route path="/contact">
-                <Contact />
-            </Route>
-        </Switch>       
-    </Router>
+        <Routes>
+          <Route path="/" element={<ComponentDescription />} />
+        </Routes>       
+      </Router>
+    </>
     // footer goes here
+ 
   )
 }
 

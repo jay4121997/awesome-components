@@ -9,15 +9,21 @@ import { Container } from "@mui/material";
 import MyEditor from "../../components/myEditor/MyEditor";
 import MetadataForm from "../../components/UI/MetaDataForm/MetadataForm";
 import Upload from "../../components/UI/Upload/Upload";
+import DropFile from "../../components/UI/DropFile/DropFile";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createTheme({}); // Default theme for the rest of the application
 
 const steps = [
   { title: "Metadata", component: <MetadataForm /> },
   { title: "Description", component: <MyEditor /> },
-  { title: "Source Code", component: <Upload /> },
+  // { title: "Source Code", component: <Upload /> },
+  { title: "React Code", component: <DropFile text='Drop Javascript File Here' numberOfFiles='1' allowedTypes='.js,.jsx,.ts,.tsx' /> },
+  { title: "Style", component: <DropFile text='Drop CSS File Here' numberOfFiles='1' allowedTypes='.css,.scss,.sass,.module.css' /> },
   
   {
     title: "Images",
-    component: <Button variant="outlined">Button</Button>,
+    component: <DropFile text='Drop Images Here' numberOfFiles='5' allowedTypes='.jpg,.jpeg,.png,.gif,.svg' />,
   },
   { title: "Preview", component: <div>Preview</div> },
 ];
@@ -29,6 +35,7 @@ export default function NewComponent() {
     2: true,
     3: true,
     4: true,
+    5: true,
   });
 
   const handleNext = () => {
@@ -47,6 +54,7 @@ export default function NewComponent() {
 
   return (
     <Container>
+      <ThemeProvider theme={theme}>
       <Box sx={{ width: "100%" }}>
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => {
@@ -90,7 +98,8 @@ export default function NewComponent() {
             </Box>
           </React.Fragment>
         )}
-      </Box>
+        </Box>
+      </ThemeProvider>
     </Container>
   );
 }

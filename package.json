@@ -16,6 +16,7 @@
     "ckeditor5-custom-build": "file:./ckeditor5",
     "dompurify": "^2.3.6",
     "install": "^0.13.0",
+    "material-ui-dropzone": "^3.5.0",
     "npm": "^8.6.0",
     "puff-puff": "^1.2.0",
     "react": "^17.0.2",

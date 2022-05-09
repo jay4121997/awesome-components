@@ -2,7 +2,7 @@ import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import CloudinaryUploadImagePlugin from '../../utils/upload.jsx'
 import { useState } from 'react' 
-import './MyEditor.css'
+import './MyEditorStyle.css'
 
 const I_API = import.meta.env.VITE_IFRAME
 
@@ -27,7 +27,7 @@ const config = {
 			'|',
       'insertTable',
       '|',
-      'sourceEditing',
+      // 'sourceEditing',
       // 'htmlEmbed',
       'codeBlock',
       '|',

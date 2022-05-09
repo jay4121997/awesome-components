@@ -106,8 +106,7 @@
     --ck-color-link-default: hsl(190, 100%, 75%);
   }
   .myEditor .ck-editor{
-    width: 70%;
-    
+    width: 100%;  
   }
   .myEditor .ck-editor__main .ck-editor__editable{
     border: 3px solid var(--ck-custom-border);

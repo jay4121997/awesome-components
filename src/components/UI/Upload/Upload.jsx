@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Stack, Button, styled } from "@mui/material";
 
 const Upload = () => {
+  const Input = styled("input")({
+    display: "none",
+  });
   const CLOUDINARY_UNSIGNED_NAME = import.meta.env.VITE_UNSIGNED;
-  console.log(CLOUDINARY_UNSIGNED_NAME);
   const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_YOUR_CLOUDINARY_NAME;
-  console.log(CLOUDINARY_CLOUD_NAME);
   const [jsFile, setJSFile] = useState(null);
   const [cssFile, setCssFile] = useState(null);
+  const [jsFileContent, setJSFileContent] = useState("");
+
+  useEffect(() => {
+    console.log(jsFile);
+    if (jsFile) {
+      var fr = new FileReader();
+      fr.onload = () => {
+        console.log(fr.result);
+        setJSFileContent(fr.result)
+      };
+      
+    }
+  }, [jsFile]);
+
   const uploadImage = (event) => {
     event.preventDefault();
     const files = event.target.files;
@@ -39,25 +55,53 @@ const Upload = () => {
           uploadImage(event);
         }}
       >
-        <input
-          type="file"
-          id="myFile"
-          name="javaScriptFile"
-          accept=".jsx,.js,.ts,.tsx"
-          onChange={(event) => {
-            setJSFile(event.target.files[0]);
-          }}
-        />
-        <input
-          type="file"
-          id="myFile"
-          name="cssFile"
-          accept=".css,.module.css"
-          onChange={(event) => {
-            setCssFile(event.target.files[0]);
-          }}
-        />
-        <input type="submit" value="Send" />
+        <Stack
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          spacing={2}
+          sx={{ my: "20px" }}
+        >
+          <label htmlFor="contained-button-file-js">
+            <Input
+              accept=".js,.jsx,.ts,.tsx"
+              id="contained-button-file-js"
+              type="file"
+              onChange={(event) => {
+                setJSFile(event.target.files[0]);
+              }}
+            />
+            <Button variant="outlined" component="span">
+              Upload JavaScript
+            </Button>
+          </label>
+          <label htmlFor="contained-button-file-css">
+            <Input
+              accept=".css,.cssx,.scss,.sass"
+              id="contained-button-file-css"
+              type="file"
+              onChange={(event) => {
+                setCssFile(event.target.files[0]);
+              }}
+            />
+            <Button variant="outlined" component="span">
+              Upload CSS
+            </Button>
+          </label>
+        </Stack>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          spacing={2}
+          sx={{ mb: "20px" }}
+        >
+          {/* <Button type="submit" variant="contained" color="primary" size="large">
+            Subscribe
+          </Button> */}
+        </Stack>
+
+        {/* <input type="submit" value="Send" /> */}
       </form>
     </div>
   );
